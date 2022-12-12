@@ -1,4 +1,4 @@
-package view;
+package view.Product;
 
 import model.Product;
 import service.ProductService;

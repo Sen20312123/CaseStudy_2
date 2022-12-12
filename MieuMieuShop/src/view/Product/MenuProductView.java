@@ -1,4 +1,9 @@
-package view;
+package view.Product;
+
+import view.Product.ProductView;
+import view.Product.SearchProductView;
+import view.Product.SortProductView;
+import view.SelectFunction;
 
 import java.util.Scanner;
 

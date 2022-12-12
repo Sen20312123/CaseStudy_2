@@ -1,10 +1,10 @@
-package view;
+package view.Product;
 
 import model.Product;
 import service.ProductService;
+import utils.ValidateUtils;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -68,7 +68,7 @@ public class SearchProductView {
             System.out.println("");
             System.out.println("────────────────────────────────────────────────────────────────────────────────────────────");
             for (Product product : products) {
-                if (product.getNameProduct().toLowerCase().contains(name.toLowerCase())) {
+                if (ValidateUtils.removeAccent(product.getNameProduct().toLowerCase()).contains(ValidateUtils.removeAccent(name.toLowerCase()))) {
                     count++;
                     System.out.printf("%-20s %-20s %-18s %-10s %-18s\n", product.getIdProduct(), product.getNameProduct(), decimalFormat.format(product.getPrice()),
                             product.getQuantity(), product.getTrademark());
@@ -94,7 +94,7 @@ public class SearchProductView {
             System.out.println("");
             System.out.println("────────────────────────────────────────────────────────────────────────────────────────────");
             for (Product product : products) {
-                if (product.getTrademark().toLowerCase().contains(trademark.toLowerCase())) {
+                if (ValidateUtils.removeAccent(product.getTrademark().toLowerCase()).contains(ValidateUtils.removeAccent(trademark.toLowerCase()))) {
                     count++;
                     System.out.printf("%-20s %-20s %-18s %-10s %-18s\n", product.getIdProduct(), product.getNameProduct(), decimalFormat.format(product.getPrice()),
                             product.getQuantity(), product.getTrademark());

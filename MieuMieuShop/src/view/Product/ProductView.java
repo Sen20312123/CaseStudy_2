@@ -1,10 +1,10 @@
-package view;
+package view.Product;
 
 import model.Product;
-import service.IProductService;
 import service.ProductService;
 import utils.AppUtils;
 import utils.InstantUtils;
+import view.SelectFunction;
 
 import java.text.DecimalFormat;
 import java.time.Instant;
@@ -227,10 +227,27 @@ public class ProductView {
 
     public void showProduct(SelectFunction choose) {
         List<Product> productList = productService.findAll();
+        System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ DANH SÁCH SẢN PHẨM ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        System.out.printf("%-25s %-25s %-15s %-20s %-20s", "ID", "Tên ", "Giá", "Số lượng" , "Thương hiệu");
+        System.out.println("");
+        for (Product product : productList) {
+            System.out.printf("%-25s %-25s %-15s %-20s %-20s\n",
+                    product.getIdProduct(),
+                    product.getNameProduct(),
+                    decimalFormat.format(product.getPrice()),
+                    product.getQuantity(),
+                    product.getTrademark());
+        }
+        System.out.println("");
+        System.out.println("──────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n");
+    }
+
+    public void showProduct1( List<Product>products,SelectFunction choose) {
+        List<Product> productList = productService.findAll();
         System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ DANH SÁCH SẢN PHẨM ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         System.out.printf("%-25s %-25s %-15s %-20s %-20s %-20s %-20s", "ID", "Tên ", "Giá", "Số lượng" , "Thương hiệu" ,"Thời gian " ,"Thời gian cập nhật");
         System.out.println("");
-        for (Product product : productList) {
+        for (Product product : products) {
             System.out.printf("%-25s %-25s %-15s %-20s %-20s %-20s %-20s\n",
                     product.getIdProduct(),
                     product.getNameProduct(),
@@ -243,9 +260,12 @@ public class ProductView {
         }
         System.out.println("");
         System.out.println("─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n");
+        if (choose != SelectFunction.UPDATE && choose != SelectFunction.REMOVE && choose != SelectFunction.SEARCH) {
+            AppUtils.pressAnyKeyToContinue();
+        }
     }
 
-    public void show(List<Product>products) {
+    public void show(List<Product> products) {
         System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ DANH SÁCH SẢN PHẨM ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         System.out.printf("%-25s %-25s %-15s %-20s %-20s %-20s %-20s", "ID", "Tên ", "Giá", "Số lượng" , "Thương hiệu" ,"Thời gian " ,"Thời gian cập nhật");
         System.out.println("");
