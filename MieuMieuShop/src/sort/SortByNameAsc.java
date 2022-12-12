@@ -1,12 +1,12 @@
-package vn.thbinh.furniture.sort;
+package sort;
 
-import vn.thbinh.furniture.model.Product;
+import model.Product;
 
 import java.util.Comparator;
 
 public class SortByNameAsc implements Comparator<Product> {
     @Override
     public int compare(Product o1, Product o2) {
-        return o1.getName().compareTo(o2.getName());
+        return o1.getNameProduct().toLowerCase().compareTo(o2.getNameProduct().toLowerCase());
     }
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="371b881f-2bdd-413a-8010-bb02ef37314e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/OrderItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/IOrderItemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/IOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/InterfaceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/OrderItemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sort/SortByNameAsc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sort/SortByNameDesc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sort/SortByPriceAsc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sort/SortByPriceDesc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sort/SortByQuantityAsc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sort/SortByQuantityDesc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/AppUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/CSVUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/InstantUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/ValidateUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/MainLauncher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/MenuOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/MenuProductView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/MenuUserView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/OrderView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/ProductView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/SearchProductView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/SelectFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/SortProductView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/UserView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/UserViewLauncher.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2IZ8Vf93ra6tle8Nas9KNPx8h5w" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/Module2/CaseStudy_2/MieuMieuShop"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="371b881f-2bdd-413a-8010-bb02ef37314e" name="Changes" comment="" />
+      <created>1670377770215</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670377770215</updated>
+      <workItem from="1670377772314" duration="83000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

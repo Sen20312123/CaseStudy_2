@@ -1,59 +1,68 @@
 package view;
 
-import service.UserService;
+import view.Order.OrderViewLauncher;
+import view.Product.MenuProductView;
+import view.User.MenuUserView;
+import view.User.UserView;
+import view.User.UserViewLauncher;
 
 import java.util.Scanner;
 
-public class MenuUserView {
-    public static Scanner sc = new Scanner(System.in);
+public class MainLauncher {
+    static Scanner scanner = new Scanner(System.in);
 
-    public static UserView userView;
-    public static UserService userService;
-
-    static AdminView adminView = new AdminView();
-
+    public MainLauncher() {
+        launch();
+    }
     public static void launch() {
-        int choice = -1;
+        MenuUserView.login();
+    }
+
+
+    public static void menuOption() {
         do {
-            UserViewLauncher.menuUser();
+            mainMenu();
             try {
-                do {
-                    System.out.println("Chọn chức năng");
-                    System.out.print("➠ ");
-                    choice = Integer.parseInt(sc.nextLine());
-                    if (choice > 6 || choice < 1)
-                        System.out.println("Chọn chức năng không đúng !!!");
-                } while (choice > 6 || choice < 1);
+                System.out.println("Chọn chức năng: ");
+                System.out.print("➱ ");
+                int choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:
-                        userView.addUser();
+                        UserViewLauncher.launch();
                         break;
                     case 2:
-                        userView.updateUser();
+                        MenuProductView.runProduct();
                         break;
                     case 3:
-                        userView.removeUser();
+                        OrderViewLauncher.runOrder();
                         break;
                     case 4:
-                        userView.showUsers(SelectFunction.SHOW);
-                        break;
-                    case 5:
-                        UserViewLauncher.menuOption();
-                        break;
-                    case 6:
-                        UserViewLauncher.login();
+                        MenuUserView.login();
                         break;
                     default:
-                        System.out.println("Chọn chức năng không đúng !!!");
+                        System.out.println("Nhập sai ⚔️Vui lòng nhập lại! ");
                         break;
                 }
-            } catch (Exception e) {
-                System.out.println("Nhập sai !!!");
+            }catch (Exception e) {
+                System.out.println("Error!  ̿’̿’\\̵͇̿̿\\");
             }
-        } while (choice != 6);
+        }while (true);
+    }
+
+    public static void mainMenu() {
+        System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
+        System.out.println("⋇          CỬA HÀNG MỸ PHẨM MIEU MIEU SHOP          ⋇");
+        System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
+        System.out.println("⋇                    MENU QUẢN LÝ                   ⋇");
+        System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
+        System.out.println("⋇                                                   ⋇");
+        System.out.println("⋇                1.Quản lý người dùng               ⋇");
+        System.out.println("⋇                2.Quản lý sản phẩm                 ⋇");
+        System.out.println("⋇                3.Quản lý đơn đặt hàng             ⋇");
+        System.out.println("⋇                4.Đăng xuất                        ⋇");
+        System.out.println("⋇                                                   ⋇");
+        System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
+    }
     }
 
 
-    public static void runOderUser() {
-    }
-}

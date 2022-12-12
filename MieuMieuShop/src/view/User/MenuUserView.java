@@ -1,8 +1,12 @@
-package view;
+package view.User;
+
+import view.Order.OrderView;
+import view.Product.ProductView;
+import view.SelectFunction;
 
 import java.util.Scanner;
 
-import static view.UserViewLauncher.adminView;
+import static view.User.UserViewLauncher.adminView;
 
 public class MenuUserView {
 
@@ -18,7 +22,7 @@ public class MenuUserView {
         System.out.println("                       MAIN MENU                     ");
         System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
         System.out.println("⋇                                                   ⋇");
-        System.out.println("⋇                1. Mua sản phẩm                    ⋇");
+        System.out.println("⋇                1. Tạo đơn hàng                    ⋇");
         System.out.println("⋇                2. Hiện thị các sản phẩm           ⋇");
         System.out.println("⋇                0. Đăng xuất                       ⋇");
         System.out.println("⋇                                                   ⋇");
@@ -64,9 +68,10 @@ public class MenuUserView {
         Scanner scanner = new Scanner(System.in);
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice) {
-//            case 1:
-//                orderView.addOrderUser();
-//                break;
+            case 1:
+                OrderView orderView = new OrderView();
+                orderView.addOrder();
+                break;
             case 2:
                 productView.showProduct(SelectFunction.SHOW);
                 runOderUser();

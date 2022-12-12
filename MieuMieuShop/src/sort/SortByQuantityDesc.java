@@ -1,6 +1,6 @@
-package vn.thbinh.furniture.sort;
+package sort;
 
-import vn.thbinh.furniture.model.Product;
+import model.Product;
 
 import java.util.Comparator;
 

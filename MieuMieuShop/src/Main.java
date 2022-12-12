@@ -1,5 +1,11 @@
+import view.*;
+import view.Order.OrderView;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        MainLauncher.launch();
+
+//        OrderView orderView = new OrderView();
+//        orderView.addOrder();
     }
 }

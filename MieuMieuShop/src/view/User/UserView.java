@@ -1,4 +1,4 @@
-package view;
+package view.User;
 
 import model.Role;
 import model.User;
@@ -6,6 +6,9 @@ import service.UserService;
 import utils.AppUtils;
 import utils.InstantUtils;
 import utils.ValidateUtils;
+import view.MainLauncher;
+import view.SelectFunction;
+import view.User.MenuUserView;
 
 import java.util.List;
 import java.util.Scanner;
@@ -328,5 +331,9 @@ public class UserView {
         System.out.println("───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
         if (choose == SelectFunction.SHOW)
             AppUtils.isRetry(SelectFunction.SHOW);
+    }
+
+    public String findNameById(long id) {
+        return userService.findNameById(id);
     }
 }

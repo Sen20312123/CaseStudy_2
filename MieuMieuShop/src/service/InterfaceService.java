@@ -7,10 +7,9 @@ import java.util.List;
 public interface InterfaceService<T> {
 
     List<T> findAll();
-
-    void add (T newInstance);
-    void remove (long id);
-    void update(T newInstance);
-    boolean exists(long id);
+    void add (T newInstant);
+    void removeById (long id);
+    void update (T newInstant);
+    boolean existsById(long id);
     T findById(long id);
 }

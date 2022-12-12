@@ -1,10 +1,14 @@
-package view;
+package view.User;
 
-import service.IUserService;
+import view.AdminView;
+import view.MainLauncher;
+import view.SelectFunction;
+import view.User.MenuUserView;
+import view.User.UserView;
 
 import java.util.Scanner;
 
-import static view.MenuUserView.login;
+import static view.User.MenuUserView.login;
 
 public class UserViewLauncher {
     static Scanner scanner = new Scanner(System.in);

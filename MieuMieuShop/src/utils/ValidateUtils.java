@@ -1,5 +1,6 @@
 package utils;
 
+import java.text.Normalizer;
 import java.util.regex.Pattern;
 
 public class ValidateUtils {
@@ -9,15 +10,17 @@ public class ValidateUtils {
     public static final String EMAIL_PATTERN = "^[A-Za-z0-9._]+@[a-z]{2,10}+\\.[a-z]{2,3}$";
     public static final String PHONE_PATTERN = "^0[1-9][0-9]{8}$";
 
+    private static final String ADDRESS_PATTERN = "^([A-ZÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬĐÈẺẼÉẸÊỀỂỄẾỆÌỈĨÍỊÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢÙỦŨÚỤƯỪỬỮỨỰỲỶỸÝỴ][a-zàảãáạăằẳẵắặâầẩẫấậđèẻẽéẹêềểễếệiìỉĩíịòỏõóọôồổỗốộơờởỡớợùủũúụỤưừửữứựỳỷỹýỵ]{0,6} ?)*$";
 
+    public static final String Pattern_pattern ="\\p{InCombiningDiacriticalMarks}+";
     public static boolean isUserNameValid(String userName) {
         return Pattern.compile(USERNAME_PATTERN).matcher(userName).matches();
     }
     public static boolean isPasswordValid(String password) {
         return Pattern.compile(PASSWORD_PATTERN).matcher(password).matches();
     }
-    public static boolean isFullNameValid(String fullname) {
-        return Pattern.compile(FULLNAME_PATTERN).matcher(fullname).matches();
+    public static boolean isFullNameValid(String fullName) {
+        return Pattern.compile(FULLNAME_PATTERN).matcher(fullName).matches();
     }
     public static boolean isEmailValid(String email) {
         return Pattern.compile(EMAIL_PATTERN).matcher(email).matches();
@@ -25,4 +28,14 @@ public class ValidateUtils {
     public static boolean isPhoneValid(String phone) {
         return Pattern.compile(PHONE_PATTERN).matcher(phone).matches();
     }
+
+    public static boolean isAddressValid(String address) {
+        return Pattern.compile(ADDRESS_PATTERN).matcher(address).matches();
+    }
+    public static String removeAccent(String s) {
+        String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
+        return Pattern.compile(Pattern_pattern).matcher(temp).replaceAll("");
+    }
+
+
 }
