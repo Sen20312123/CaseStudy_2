@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IOrderItemService extends  InterfaceService<OrderItem>{
     List<OrderItem> findByOrderId(long orderId);
+
+    double getGrandTotal();
 }

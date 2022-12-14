@@ -22,7 +22,7 @@ public class OrderView {
     public static Scanner scanner = new Scanner(System.in);
     public final IProductService productService;
     public final IOrderService orderService;
-    public final IOrderItemService orderItemService ;
+    public final OrderItemService orderItemService ;
 
     public final IUserService userService;
 
@@ -39,10 +39,8 @@ public class OrderView {
     }
 
     public void addOrder(long idUser){
-//        long id , long userId, String name, String phone, String address ,
-//        double grandTotal  , Instant creatAt , java.time.Instant updateAt
         try {
-
+            idUser = AdminView.idOnlineUser;
             long orderId = System.currentTimeMillis() %10000;
             ProductView productView = new ProductView();
             productView.showProduct(SelectFunction.ADD);
@@ -50,7 +48,6 @@ public class OrderView {
             String phone = inputPhone(SelectFunction.ADD);
             String address = inputAddress(SelectFunction.ADD);
             Order order = new Order();
-            double grandTotal = orderItem.getTotal();
             Instant creatAt = Instant.now();
             Instant updateAt = Instant.now();
             order.setIdUser(idUser);
@@ -58,16 +55,16 @@ public class OrderView {
             order.setName(name);
             order.setPhone(phone);
             order.setAddress(address);
-            order.setGrandTotal(grandTotal);
+            order.setGrandTotal(orderItemService.getGrandTotal());
             order.setCreatAt(creatAt);
             order.setUpdateAt(updateAt);
-//            order = new Order( , , name ,phone ,address,grandTotal , creatAt , updateAt);
-            //public Order(long id , long idUser, String name, String phone, String address , double grandTotal  , Instant creatAt , Instant updateAt)
             orderService.add(order);
             System.out.println("Tạo đơn thành công!Thêm sản phẩm vào giỏ hàng.");
+
             OrderItemView orderItemView = new OrderItemView();
             OrderItem orderItem = orderItemView.addOrderItem(order.getId());
             orderItemService.add(orderItem);
+
             showOrder();
         }catch (Exception e){
             System.out.println("Nhập sai!!! Vui lòng nhập lại!");
@@ -136,10 +133,11 @@ public class OrderView {
         for (Order order : orders) {
             System.out.printf("| %-2s%-12s | %-3s%-23s | %-3s%-13s | %-11s%-24s  | %-4s%-18s | %-2s%-33s | %-2s%-20s | %-2s%-20s |\n",
                     "", order.getId(),
-                    "", userView.findNameById(AdminView.idOnlineUser) + " (" + AdminView.idOnlineUser+ ")",
+                    "", userService.findNameById(order.getIdUser()) + " (" + order.getIdUser()+ ")",
                     "", order.getPhone(),
                     "", order.getAddress(),
-                    "", AppUtils.doubleToVND(order.getGrandTotal()),
+                    "", order.getGrandTotal(),
+//                    "", AppUtils.doubleToVND(orderItemService.getGrandTotal1(1)),
                     "",order.getName()  ,
                     "", InstantUtils.instantToString(order.getCreatAt()),
                     "", order.getUpdateAt() == null ? "" : InstantUtils.instantToString(order.getUpdateAt())

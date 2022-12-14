@@ -14,7 +14,7 @@ public class UserService implements IUserService {
     private static final String PATH = "E:\\Module2\\CaseStudy_2\\MieuMieuShop\\data\\user.csv";
     private static UserService userService;
 
-    private UserService() {
+    public UserService() {
     }
 
     public static UserService getUserService() {

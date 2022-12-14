@@ -112,8 +112,7 @@ public class Order {
 
 
     public long getIdUser() {
-        User user = new User();
-        return idUser = user.getIdUser();
+        return idUser;
     }
 
     public void setIdUser(long idUser) {
@@ -129,8 +128,7 @@ public class Order {
     }
 
     public double getGrandTotal() {
-        OrderItem orderItem = new OrderItem();
-        return grandTotal+= orderItem.getTotal();
+        return grandTotal;
     }
 
     public void setGrandTotal(double grandTotal) {

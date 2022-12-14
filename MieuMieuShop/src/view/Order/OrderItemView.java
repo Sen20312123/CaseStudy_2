@@ -27,8 +27,6 @@ public class OrderItemView {
     }
 
     public  OrderItem addOrderItem(long orderId) {
-//        long id, long productId, String productName, double price, int quantity, double total, long orderId
-        List<OrderItem> orderItems = new ArrayList<>();
         long id = System.currentTimeMillis() % 1000;
         System.out.println("Nhập ID sản phẩm muốn mua");
         System.out.print("┌► ");
@@ -59,6 +57,7 @@ public class OrderItemView {
         double total = quantity * product.getPrice();
         int currentQuantity = oldQuantity - quantity;
         product.setQuantity(currentQuantity);
+
         OrderItem orderItem = new OrderItem(id ,idPro, name, price, quantity, total, orderId);
         productService.updateQuantity(idPro, quantity);
         return orderItem;

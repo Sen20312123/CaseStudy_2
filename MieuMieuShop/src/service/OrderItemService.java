@@ -102,4 +102,15 @@ public class OrderItemService implements IOrderItemService{
         return sum;
 
     }
+    public double getGrandTotal1(long idOrder) {
+        List<OrderItem> orderItemList = findAll();
+        double sum = 0;
+        for ( OrderItem item : orderItemList) {
+            if (item.getOrderId() == idOrder) {
+                sum += item.getTotal();
+            }
+        }
+        return sum;
+
+    }
 }

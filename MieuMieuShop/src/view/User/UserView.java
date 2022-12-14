@@ -333,7 +333,5 @@ public class UserView {
             AppUtils.isRetry(SelectFunction.SHOW);
     }
 
-    public String findNameById(long id) {
-        return userService.findNameById(id);
-    }
+
 }
