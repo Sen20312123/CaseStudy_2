@@ -55,8 +55,8 @@ public class OrderService implements IOrderService{
                 order.setName(newInstant.getName());
                 order.setPhone(newInstant.getPhone());
                 order.setAddress(newInstant.getAddress());
-                order.setGrandTotalTotal(newInstant.getGrandTotalTotal());
-                order.setUserId(newInstant.getUserId());
+                order.setGrandTotal(newInstant.getGrandTotal());
+                order.setIdUser(newInstant.getIdUser());
                 order.setUpdateAt(Instant.now());
                 CSVUtils.writeFile(PATH , orders);
                 break;
@@ -80,11 +80,11 @@ public class OrderService implements IOrderService{
     }
 
     @Override
-    public List<Order> findUserById(long userId) {
+    public List<Order> findUserById(long idUser) {
         List<Order> orders = findAll();
         List<Order> findId = new ArrayList<>();
         for (Order order: orders){
-            if (order.getUserId() == userId)
+            if (order.getIdUser() == idUser)
                 findId.add(order);
         }
         return findId;

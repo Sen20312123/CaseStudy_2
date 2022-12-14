@@ -24,6 +24,10 @@ public class ProductService implements IProductService{
        }return productService;
     }
 
+    public double getPrice(long id) {
+        return findById(id).getPrice();
+    }
+
     public List<Product> findAll() {
         List<Product> products = new ArrayList<>();
         List<String> records = CSVUtils.readFile(PATH);

@@ -1,5 +1,6 @@
 package view.User;
 
+import view.AdminView;
 import view.Order.OrderView;
 import view.Product.ProductView;
 import view.SelectFunction;
@@ -70,7 +71,7 @@ public class MenuUserView {
         switch (choice) {
             case 1:
                 OrderView orderView = new OrderView();
-                orderView.addOrder();
+                orderView.addOrder(AdminView.idOnlineUser);
                 break;
             case 2:
                 productView.showProduct(SelectFunction.SHOW);

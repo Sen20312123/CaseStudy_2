@@ -3,10 +3,12 @@ package view.Order;
 import model.Order;
 import model.OrderItem;
 import model.Product;
+import model.User;
 import service.*;
 import utils.AppUtils;
 import utils.InstantUtils;
 import utils.ValidateUtils;
+import view.AdminView;
 import view.Product.ProductView;
 import view.SelectFunction;
 import view.User.UserView;
@@ -25,6 +27,9 @@ public class OrderView {
     public final IUserService userService;
 
     public final UserView userView = new UserView();
+    public final User  user = new User();
+
+    public final OrderItem orderItem = new OrderItem();
 
     public OrderView(){
         productService = ProductService.getProductService();
@@ -33,26 +38,37 @@ public class OrderView {
         userService = UserService.getUserService();
     }
 
-    public void addOrder(){
+    public void addOrder(long idUser){
 //        long id , long userId, String name, String phone, String address ,
 //        double grandTotal  , Instant creatAt , java.time.Instant updateAt
         try {
+
             long orderId = System.currentTimeMillis() %10000;
             ProductView productView = new ProductView();
             productView.showProduct(SelectFunction.ADD);
             String name = inputName(SelectFunction.ADD);
             String phone = inputPhone(SelectFunction.ADD);
             String address = inputAddress(SelectFunction.ADD);
+            Order order = new Order();
+            double grandTotal = orderItem.getTotal();
             Instant creatAt = Instant.now();
             Instant updateAt = Instant.now();
-            Order order = new Order(orderId , name ,phone ,address , creatAt , updateAt);
-            order.setUserId(order.getUserId());
-            OrderItemView orderItemView = new OrderItemView();
-            OrderItem orderItem = orderItemView.addOrderItem(orderId);
-            orderItemService.add(orderItem);
+            order.setIdUser(idUser);
+            order.setId(orderId);
+            order.setName(name);
+            order.setPhone(phone);
+            order.setAddress(address);
+            order.setGrandTotal(grandTotal);
+            order.setCreatAt(creatAt);
+            order.setUpdateAt(updateAt);
+//            order = new Order( , , name ,phone ,address,grandTotal , creatAt , updateAt);
+            //public Order(long id , long idUser, String name, String phone, String address , double grandTotal  , Instant creatAt , Instant updateAt)
             orderService.add(order);
+            System.out.println("Tạo đơn thành công!Thêm sản phẩm vào giỏ hàng.");
+            OrderItemView orderItemView = new OrderItemView();
+            OrderItem orderItem = orderItemView.addOrderItem(order.getId());
+            orderItemService.add(orderItem);
             showOrder();
-            System.out.println("Tạo đơn thành công!");
         }catch (Exception e){
             System.out.println("Nhập sai!!! Vui lòng nhập lại!");
             e.printStackTrace();
@@ -120,10 +136,10 @@ public class OrderView {
         for (Order order : orders) {
             System.out.printf("| %-2s%-12s | %-3s%-23s | %-3s%-13s | %-11s%-24s  | %-4s%-18s | %-2s%-33s | %-2s%-20s | %-2s%-20s |\n",
                     "", order.getId(),
-                    "", userView.findNameById(order.getUserId()) + " (" + order.getUserId()+ ")",
+                    "", userView.findNameById(AdminView.idOnlineUser) + " (" + AdminView.idOnlineUser+ ")",
                     "", order.getPhone(),
                     "", order.getAddress(),
-                    "", AppUtils.doubleToVND(order.getGrandTotalTotal()),
+                    "", AppUtils.doubleToVND(order.getGrandTotal()),
                     "",order.getName()  ,
                     "", InstantUtils.instantToString(order.getCreatAt()),
                     "", order.getUpdateAt() == null ? "" : InstantUtils.instantToString(order.getUpdateAt())
@@ -131,4 +147,6 @@ public class OrderView {
         }
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
+
+
 }

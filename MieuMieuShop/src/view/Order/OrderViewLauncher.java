@@ -1,5 +1,6 @@
 package view.Order;
 
+import view.AdminView;
 import view.MainLauncher;
 import view.User.UserViewLauncher;
 
@@ -21,10 +22,10 @@ public class OrderViewLauncher {
                 choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:
-                        orderView.addOrder();
+                        orderView.addOrder(AdminView.idOnlineUser);
                         break;
                     case 2:
-//                        orderView.showTurnover();
+                        orderView.showOrder();
                         break;
                     case 3:
                         MainLauncher.menuOption();
@@ -46,7 +47,7 @@ public class OrderViewLauncher {
         System.out.println("\t│► ░░░░░░░░░░░░░░░░░░░[QUẢN LÝ ĐƠN HÀNG]░░░░░░░░░░░░░░░░░ ◄│");
         System.out.println("\t└──────────────────────────────────────────────────────────┘");
         System.out.println("\t│                 【1】. Tạo đơn hàng                       │");
-        System.out.println("\t│                 【2】. Xem doanh thu                      │");
+        System.out.println("\t│                 【2】. Xem đơn hàng                       │");
         System.out.println("\t│                 【3】. Quay lại MAIN MENU                 │");
         System.out.println("\t│                 【4】. Thoát                              │");
         System.out.println("\t└──────────────────────────────────────────────────────────┘");

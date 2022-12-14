@@ -12,6 +12,15 @@ public class OrderItem {
 
     public OrderItem() {
     }
+    public OrderItem(long id, long productId, String productName, double price, int quantity, long orderId) {
+        this.id = id;
+        this.productId = productId;
+        this.productName = productName;
+        this.price = price;
+        this.quantity = quantity;
+        this.total = price * quantity;
+        this.orderId = orderId;
+    }
 
     public OrderItem(long id, long productId, String productName, double price, int quantity, double total, long orderId) {
         this.id = id;
@@ -83,7 +92,8 @@ public class OrderItem {
         this.productName = productName;
     }
     public double getTotal() {
-        return this.price * this.quantity;
+//        return this.price * this.quantity;
+        return this.total;
     }
 
     public void setTotal(double total) {

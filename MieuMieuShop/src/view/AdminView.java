@@ -13,6 +13,7 @@ public class AdminView {
         private final IUserService userService;
 
         private static Scanner sc = new Scanner(System.in);
+        public static long idOnlineUser;
 
     public AdminView() {
         userService = UserService.getUserService();
@@ -36,10 +37,12 @@ public class AdminView {
             } else if (user.getRole() == Role.ADMIN) {
                 System.out.println(" ✅ Đăng nhập thành công ✅ ");
                 System.out.println(" ☻☻☻ Chào mừng Admin " + user.getFullName() + " ☻☻☻");
+                idOnlineUser =user.getIdUser();
                 MainLauncher.menuOption();
             } else if (user.getRole() == Role.USER) {
                 System.out.println(" ✅ Đăng nhập thành công ✅ ");
                 System.out.println(" ☻☻☻ Chào mừng user " + user.getFullName() + " ☻☻☻ ");
+                idOnlineUser = user.getIdUser();
                 MenuUserView.runOderUser();
             }
         } while (isRetry);

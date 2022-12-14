@@ -9,7 +9,7 @@ public class Order {
     private String address;
     private double grandTotal;
 
-    private long userId;
+    private long idUser;
     private Instant creatAt;
 
     private Instant updateAt;
@@ -17,9 +17,9 @@ public class Order {
     public Order() {
     }
 
-    public Order(long id , long userId, String name, String phone, String address , double grandTotal  , Instant creatAt , Instant updateAt) {
+    public Order(long id , long idUser, String name, String phone, String address , double grandTotal  , Instant creatAt , Instant updateAt) {
         this.id = id;
-        this.userId = userId;
+        this.idUser = idUser;
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -58,7 +58,7 @@ public class Order {
         Order order = new Order();
         String [] fields = raw.split(",");
         order.id = Long.parseLong(fields[0]);
-        order.userId = Long.parseLong(fields[1]);
+        order.idUser = Long.parseLong(fields[1]);
         order.name = fields[5];
         order.phone =fields[2];
         order.address = fields[3];
@@ -110,20 +110,14 @@ public class Order {
         this.creatAt = creatAt;
     }
 
-    public double getGrandTotalTotal() {
-        return grandTotal;
+
+    public long getIdUser() {
+        User user = new User();
+        return idUser = user.getIdUser();
     }
 
-    public void setGrandTotalTotal(double grandTotal) {
-        this.grandTotal = grandTotal;
-    }
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
     }
 
     public Instant getUpdateAt() {
@@ -134,11 +128,19 @@ public class Order {
         this.updateAt = updateAt;
     }
 
+    public double getGrandTotal() {
+        OrderItem orderItem = new OrderItem();
+        return grandTotal+= orderItem.getTotal();
+    }
+
+    public void setGrandTotal(double grandTotal) {
+        this.grandTotal = grandTotal;
+    }
 
     @Override
     public String toString() {
         return id + "," +
-                userId+
+                idUser+
                 "," +
                 phone +
                 "," +

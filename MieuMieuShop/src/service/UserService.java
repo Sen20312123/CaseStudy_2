@@ -107,7 +107,7 @@ public class UserService implements IUserService {
     public String findNameById(long id) {
         List<User> users = findAll();
         for (User user : users) {
-            if (user.getIdUser() == id) {
+            if ( user.getIdUser()== id){
                 return user.getFullName();
             }
         }
