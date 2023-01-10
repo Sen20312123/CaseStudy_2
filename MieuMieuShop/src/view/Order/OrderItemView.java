@@ -380,6 +380,7 @@ public class OrderItemView {
                 case "t":
                     productView.showProduct1(productService.findAll(), SelectFunction.SHOW);
                     addOrderItem(orderId);
+                    setGrandTotal(orderId);
                     checkContinueOrderItem(orderId);
                     return false;
                 case "i":
@@ -423,6 +424,7 @@ public class OrderItemView {
         }while (checkContinue1);
     }
     private void removePrintedOrders(long orderId) {
+        setGrandTotal(orderId);
         orderService.removeById(orderId);
         orderItemService.removeById(orderId);
     }
@@ -478,7 +480,7 @@ public class OrderItemView {
         List<OrderItem> orderItems = orderItemService.findByOrderId(orderId);
         Order order = orderService.findById(orderId);
 
-        System.out.println("──────────────────────────────────────── HÓA ĐƠN THANH TOÁN ────────────────────────────────────────");
+        System.out.println("──────────────────────────────────────── HÓA ĐƠN THANH TOÁN ──────────────────────────────────────");
         System.out.println("│                                                                                                 │");
         System.out.printf("│   Người mua: %-25s  ĐƠN THANH TOÁN           Thời gian: %16s    │\n", order.getName(), InstantUtils.instantToString(order.getCreatAt()));
         System.out.printf("│   Số điện thoại: %-30s                         (MISS. MIÊU)            │\n", order.getPhone());
@@ -507,7 +509,7 @@ public class OrderItemView {
         System.out.println("│                                                                                                 │");
         System.out.printf("│            Cám Ơn Quý Khách!                                   Tổng tiền: %-20s  │\n", AppUtils.doubleToVND(orderItemService.getGrandTotal1(orderId)));
         System.out.println("│                                                                                                 │");
-        System.out.println("───────────────────────────────────────────────────────────────────────────────────────────────────");
+        System.out.println("──────────────────────────────────────────────────────────────────────────────────────────────────");
         removePrintedOrders(orderId);
     }
 

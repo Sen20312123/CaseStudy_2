@@ -220,11 +220,11 @@ public Statistical(){
 
     public static void menuStatistical(){
         System.out.println("\t┌──────────────────────────────────────────────────────────┐");
-        System.out.println("\t│► ░░░░░░░░░░░░░░░░░░░░░░░░[THÔNG KÊ]░░░░░░░░░░░░░░░░░░░░ ◄│");
+        System.out.println("\t│► ░░░░░░░░░░░░░░░░░░░░░░░░[THỐNG KÊ]░░░░░░░░░░░░░░░░░░░░ ◄│");
         System.out.println("\t└──────────────────────────────────────────────────────────┘");
-        System.out.println("\t│               【1】. Thông kê theo ngày                   │");
-        System.out.println("\t│               【2】. Thông kê theo tháng                  │");
-        System.out.println("\t│               【3】. Thông kê theo năm                    │");
+        System.out.println("\t│               【1】. Thống kê theo ngày                   │");
+        System.out.println("\t│               【2】. Thống kê theo tháng                  │");
+        System.out.println("\t│               【3】. Thống kê theo năm                    │");
         System.out.println("\t│               【4】. Quay lại Menu quản lý                │");
         System.out.println("\t│               【5】. Thoát                                │");
         System.out.println("\t└──────────────────────────────────────────────────────────┘");
