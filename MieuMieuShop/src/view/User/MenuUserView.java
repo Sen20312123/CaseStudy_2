@@ -13,7 +13,6 @@ public class MenuUserView {
 
     private static Scanner sc = new Scanner(System.in);
     static ProductView productView = new ProductView();
-//    static OrderView orderView = new OrderView();
 
     public static void menuOderUser() {
         System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
@@ -25,9 +24,12 @@ public class MenuUserView {
         System.out.println("⋇                                                   ⋇");
         System.out.println("⋇                1. Tạo đơn hàng                    ⋇");
         System.out.println("⋇                2. Hiện thị các sản phẩm           ⋇");
+        System.out.println("⋇                3. Chỉnh sửa đơn hàng              ⋇");
         System.out.println("⋇                0. Đăng xuất                       ⋇");
         System.out.println("⋇                                                   ⋇");
         System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
+        System.out.println("Chọn chức năng:");
+        System.out.print("➽ ");
     }
     public static void menuUser() {
         System.out.println("\t┌──────────────────────────────────────────────────────────┐");
@@ -63,25 +65,31 @@ public class MenuUserView {
         }
     }
     public static void runOderUser() {
-        menuOderUser();
-        System.out.println("Chọn chức năng:");
-        System.out.println("➽ ");
-        Scanner scanner = new Scanner(System.in);
-        int choice = Integer.parseInt(scanner.nextLine());
-        switch (choice) {
-            case 1:
-                OrderView orderView = new OrderView();
-                orderView.addOrder(AdminView.idOnlineUser);
-                break;
-            case 2:
-                productView.showProduct(SelectFunction.SHOW);
-                runOderUser();
-                break;
-            case 0:
-                login();
-                break;
-            default:
-                System.out.println("Nhập chức năng sai ❌ Vui lòng nhập lại !!!");
-        }
+        do {
+            menuOderUser();
+            int choice = Integer.parseInt(sc.nextLine());
+            switch (choice) {
+                case 1:
+                    OrderView orderView = new OrderView();
+                    orderView.addOrder(AdminView.idOnlineUser);
+                    break;
+                case 2:
+                    productView.showProduct(SelectFunction.SHOW);
+                    runOderUser();
+                    break;
+                case 3:
+                    OrderView orderView1 = new OrderView();
+                    orderView1.updateOrder(AdminView.idOnlineUser);
+                    break;
+                case 4:
+
+                    break;
+                case 0:
+                    login();
+                    break;
+                default:
+                    System.out.println("Nhập chức năng sai ❌ Vui lòng nhập lại !!!");
+            }
+        }while (true);
     }
 }

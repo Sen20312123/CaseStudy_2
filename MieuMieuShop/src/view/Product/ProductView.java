@@ -54,7 +54,7 @@ public class ProductView {
              int id = Integer.parseInt(sc.nextLine());
              if (productService.existsById(id)) {
                  MenuProductView.inputUpdate();
-                 boolean is = true;
+                 boolean isFlag = true;
                  do {
                      try {
                          int choice = Integer.parseInt(sc.nextLine());
@@ -82,7 +82,7 @@ public class ProductView {
                      } catch (Exception e) {
                          updateProduct();
                      }
-                 } while (!is);
+                 } while (!isFlag);
                  boolean flag = true;
                  do {
                      System.out.print("Nhấn 'c' để tiếp tục cập nhật || Nhấn 'b' để quay lại || Nhấn 'e' để thoát \n");
@@ -243,7 +243,7 @@ public class ProductView {
     }
 
     public void showProduct1( List<Product>products,SelectFunction choose) {
-        List<Product> productList = productService.findAll();
+//        List<Product> productList = productService.findAll();
         System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ DANH SÁCH SẢN PHẨM ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         System.out.printf("%-25s %-25s %-15s %-20s %-20s %-20s %-20s", "ID", "Tên ", "Giá", "Số lượng" , "Thương hiệu" ,"Thời gian " ,"Thời gian cập nhật");
         System.out.println("");
@@ -261,7 +261,6 @@ public class ProductView {
         System.out.println("");
         System.out.println("─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n");
         if (choose != SelectFunction.UPDATE && choose != SelectFunction.REMOVE && choose != SelectFunction.SEARCH) {
-            AppUtils.pressAnyKeyToContinue();
         }
     }
 

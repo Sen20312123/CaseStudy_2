@@ -8,16 +8,17 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderService implements IOrderService{
+public class OrderService implements IOrderService {
     private static final String PATH = "E:\\Module2\\CaseStudy_2\\MieuMieuShop\\data\\order.csv";
+    private static final String pathPrintedOrder = "E:\\Module2\\CaseStudy_2\\MieuMieuShop\\data\\printedOrder.csv";
 
     public static OrderService orderService;
 
-    public OrderService(){
+    public OrderService() {
 
     }
 
-    public static OrderService orderService(){
+    public static OrderService orderService() {
         if (orderService == null)
             orderService = new OrderService();
         return orderService;
@@ -33,32 +34,48 @@ public class OrderService implements IOrderService{
         return orders;
     }
 
+    public List<Order> findAllPrintedOrder() {
+        List<Order> orders = new ArrayList<>();
+        List<String> records = CSVUtils.readFile(pathPrintedOrder);
+        for (String record : records) {
+            orders.add(Order.parseOrder(record));
+        }
+        return orders;
+    }
+
     @Override
     public void add(Order newInstant) {
-    List<Order> orders = findAll();
-    orders.add(newInstant);
-    CSVUtils.writeFile(PATH , orders);
+        List<Order> orders = findAll();
+        orders.add(newInstant);
+        CSVUtils.writeFile(PATH, orders);
     }
 
     @Override
     public void removeById(long id) {
-        List<Order> orders = findAll();
-        orders.removeIf(order -> order.getId()==id);
-        CSVUtils.writeFile(PATH,orders);
+        List<Order> orderList = findAll();
+        List<Order> orderRemovedList = findAllPrintedOrder();
+        for (Order order : orderList) {
+            if (order.getId() == id) {
+                orderRemovedList.add(order);
+                orderList.remove(order);
+                break;
+            }
+        }
+        CSVUtils.writeFile(PATH, orderList);
+        CSVUtils.writeFile(pathPrintedOrder, orderRemovedList);
     }
 
     @Override
     public void update(Order newInstant) {
-    List<Order> orders = findAll();
-        for (Order order: orders) {
-            if(order.getId() == newInstant.getId()){
+        List<Order> orders = findAll();
+        for (Order order : orders) {
+            if (order.getId() == newInstant.getId()) {
                 order.setName(newInstant.getName());
                 order.setPhone(newInstant.getPhone());
                 order.setAddress(newInstant.getAddress());
                 order.setGrandTotal(newInstant.getGrandTotal());
                 order.setIdUser(newInstant.getIdUser());
-                order.setUpdateAt(Instant.now());
-                CSVUtils.writeFile(PATH , orders);
+                CSVUtils.writeFile(PATH, orders);
                 break;
             }
         }
@@ -66,14 +83,19 @@ public class OrderService implements IOrderService{
 
     @Override
     public boolean existsById(long id) {
-        return findById(id) != null;
+        List<Order> orders = findAll();
+        for (Order order : orders) {
+            if (id == order.getId())
+                return true;
+        }
+        return false;
     }
 
     @Override
     public Order findById(long id) {
         List<Order> orders = findAll();
         for (Order order : orders) {
-            if (order.getId() == id)
+            if (id == order.getId())
                 return order;
         }
         return null;
@@ -81,12 +103,73 @@ public class OrderService implements IOrderService{
 
     @Override
     public List<Order> findUserById(long idUser) {
-        List<Order> orders = findAll();
+        List<Order> orders = findAllPrintedOrder();
         List<Order> findId = new ArrayList<>();
-        for (Order order: orders){
+        for (Order order : orders) {
             if (order.getIdUser() == idUser)
                 findId.add(order);
         }
         return findId;
+    }
+
+    public List<Order> findIdUserByOrder(long idUser) {
+        List<Order> orders = findAll();
+        List<Order> findId = new ArrayList<>();
+        for (Order order : orders) {
+            if (order.getIdUser() == idUser)
+                findId.add(order);
+        }
+        return findId;
+    }
+    public List<Order> findByFullName(String value) {
+        List<Order> orders = findAllPrintedOrder();
+        List<Order> find = new ArrayList<>();
+        for (Order item : orders) {
+            if ((item.getName().toUpperCase()).contains(value.toUpperCase())) {
+                find.add(item);
+            }
+        }
+        if (find.isEmpty()) {
+            return null;
+        }
+        return find;
+    }
+
+
+    public List<Order> findByPhone(String value, long userId) {
+        List<Order> orders = findUserById(userId);
+        List<Order> find = new ArrayList<>();
+        for (Order item : orders) {
+            if ((item.getPhone().toUpperCase()).contains(value.toUpperCase())) {
+                find.add(item);
+            }
+        }
+        if (find.isEmpty()) {
+            return null;
+        }
+        return find;
+    }
+
+    public List<Order> findByAddress(String value, long userId) {
+        List<Order> orders = findAllPrintedOrder();
+        List<Order> find = new ArrayList<>();
+        for (Order item : orders) {
+            if ((item.getAddress().toUpperCase()).contains(value.toUpperCase())) {
+                find.add(item);
+            }
+        }
+        if (find.isEmpty()) {
+            return null;
+        }
+        return find;
+    }
+
+    public Order findByIdOrder(long orderId) {
+        List<Order> orders = findAllPrintedOrder();
+        for (Order order : orders) {
+            if ( order.getId()==orderId)
+                return order;
+        }
+        return null;
     }
 }

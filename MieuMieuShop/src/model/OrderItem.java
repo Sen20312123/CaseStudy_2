@@ -92,7 +92,6 @@ public class OrderItem {
         this.productName = productName;
     }
     public double getTotal() {
-//        return this.price * this.quantity;
         return this.total;
     }
 

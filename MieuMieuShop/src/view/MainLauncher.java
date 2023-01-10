@@ -1,6 +1,7 @@
 package view;
 
 import view.Order.OrderViewLauncher;
+import view.Order.Statistical;
 import view.Product.MenuProductView;
 import view.User.MenuUserView;
 import view.User.UserView;
@@ -23,8 +24,6 @@ public class MainLauncher {
         do {
             mainMenu();
             try {
-                System.out.println("Chọn chức năng: ");
-                System.out.print("➱ ");
                 int choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:
@@ -62,6 +61,8 @@ public class MainLauncher {
         System.out.println("⋇                4.Đăng xuất                        ⋇");
         System.out.println("⋇                                                   ⋇");
         System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
+        System.out.println("Chọn chức năng: ");
+        System.out.print("➱ ");
     }
     }
 

@@ -80,9 +80,7 @@ public class SearchProductView {
         } catch (Exception e) {
             System.out.println("Chưa hợp lệ!Mời nhập lại");
         }
-
     }
-
     public static void searchByTrademark() {
         List<Product> products = productService.findAll();
         int count = 0;
@@ -110,7 +108,7 @@ public class SearchProductView {
 
     public static void showReturnSearch(int count) {
         char choice = ' ';
-        boolean isChoice;
+        boolean flag;
         System.out.println();
         do {
             System.out.println("Nhấn 'q' để quay lại.");
@@ -121,14 +119,13 @@ public class SearchProductView {
                 choice = ' ';
             }
             switch (choice) {
-                case 'q': {
+                case 'q':
                     SearchProductView.search();
-                    isChoice = false;
+                    flag = false;
                     break;
-                }
                 default:
-                    isChoice = true;
+                    flag = true;
             }
-        } while (isChoice);
+        } while (flag);
     }
 }

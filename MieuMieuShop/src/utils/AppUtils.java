@@ -75,6 +75,8 @@ public class AppUtils {
                 case SHOW:
                     System.out.println("Nhấn 'q' để quay lại || Nhấn 't' để thoát chương trình!");
                     break;
+                case PRINT:
+                    System.out.println("Nhấn 'i' để in hoá đơn || Nhấn 'q' để quay lại || Nhấn 't' để thoát chương trình! ");
                 default:
                     throw new IllegalStateException("Unexpected value " + choose);
             }
@@ -111,14 +113,19 @@ public class AppUtils {
         } while (true);
     }
 
-    public static void pressAnyKeyToContinue() {
-        System.out.print("Ấn nút bất kỳ để tiếp tục. ");
-        sc.nextLine();
-    }
 
     public static String doubleToVND(double value) {
         String patternVND = ",### VNĐ";
         DecimalFormat decimalFormat = new DecimalFormat(patternVND);
         return decimalFormat.format(value);
+    }
+
+    public static void menuDelete() {
+        System.out.println("═════ BẠN CÓ MUỐN XÓA KHÔNG? ═════");
+        System.out.println("║            1. Có.              ║");
+        System.out.println("║            2. Không.           ║");
+        System.out.println("══════════════════════════════════");
+        System.out.println("Nhập lựa chọn: ");
+        System.out.print(" => ");
     }
 }
