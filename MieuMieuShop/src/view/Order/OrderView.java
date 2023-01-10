@@ -8,6 +8,7 @@ import utils.ValidateUtils;
 import view.AdminView;
 import view.Product.ProductView;
 import view.SelectFunction;
+import view.User.MenuUserView;
 import view.User.UserView;
 
 import java.time.Instant;
@@ -287,33 +288,58 @@ public class OrderView {
 
     public void showOrdersOfEmployee(long userId , SelectFunction choose){
         List<Order> orders = orderService.findIdUserByOrder(userId);
+        if (orders.size() != 0) {
 //        id + "," + userId+ "," + phone + "," + address+ "," + grandTotal+ "," + name + "," + creatAt+ ","+ updateAt;
-        System.out.println("────────────────────────────────────────────────────────────────────────────────────────── DANH SÁCH ĐƠN HÀNG ────────────────────────────────────────────────────────────────────────────────────────");
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("| %-5s%-9s | %-8s%-18s | %-6s%-10s | %-5s%-24s  | %-7s%-15s | %-11s%-24s | %-2s%-20s |\n",
-                "", "ID",
-                "", "KHÁCH HÀNG ",
-                "", "SĐT",
-                "", "ĐỊA CHỈ",
-                "", " TỔNG TIỀN",
-                "", "NHÂN VIÊN (ID)",
-                "", "THỜI GIAN TẠO"
-        );
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        for (Order order : orders) {
-            System.out.printf("| %-2s%-12s | %-3s%-23s | %-3s%-13s | %-5s%-24s  | %-4s%-18s | %-2s%-33s | %-2s%-20s |\n",
-                    "", order.getId(),
-                    "",order.getName() ,
-                    "", order.getPhone(),
-                    "", order.getAddress(),
-                    "", order.getGrandTotal(),
-                    "", userService.findNameById(order.getIdUser()) + " (" + order.getIdUser()+ ")" ,
-                    "", InstantUtils.instantToString(order.getCreatAt())
+            System.out.println("────────────────────────────────────────────────────────────────────────────────────────── DANH SÁCH ĐƠN HÀNG ────────────────────────────────────────────────────────────────────────────────────────");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("| %-5s%-9s | %-8s%-18s | %-6s%-10s | %-5s%-24s  | %-7s%-15s | %-11s%-24s | %-2s%-20s |\n",
+                    "", "ID",
+                    "", "KHÁCH HÀNG ",
+                    "", "SĐT",
+                    "", "ĐỊA CHỈ",
+                    "", " TỔNG TIỀN",
+                    "", "NHÂN VIÊN (ID)",
+                    "", "THỜI GIAN TẠO"
             );
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            for (Order order : orders) {
+                System.out.printf("| %-2s%-12s | %-3s%-23s | %-3s%-13s | %-5s%-24s  | %-4s%-18s | %-2s%-33s | %-2s%-20s |\n",
+                        "", order.getId(),
+                        "", order.getName(),
+                        "", order.getPhone(),
+                        "", order.getAddress(),
+                        "", order.getGrandTotal(),
+                        "", userService.findNameById(order.getIdUser()) + " (" + order.getIdUser() + ")",
+                        "", InstantUtils.instantToString(order.getCreatAt())
+                );
+            }
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            orderItemView.showAllItemOfOrder(choose);
+        }else {
+            System.out.println("Danh sách trống . Hãy thêm đơn hàng.");
+            addToEmptyList(userId);
         }
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        orderItemView.showAllItemOfOrder(choose);
     }
+    public void addToEmptyList(long orderId ){
+        boolean flag = true;
+        do {
+            System.out.println(" Chọn 't' để thêm sản phẩm \t|\t 'q' để quay lại.");
+            System.out.print(" => ");
+            String option = scanner.nextLine();
+            switch (option) {
+                case "t":
+                    addOrder(orderId);
+                case "q":
+                  flag = false;
+                  break;
+                default:
+                    System.out.println("Lựa chọn sai. Vui lòng nhập lại!");
+                    System.out.print(" => ");
+                    flag = true;
+            }
+        } while (flag);
+    }
+
     public void showOrder1(List<Order> orders, SelectFunction choose){
 //        id + "," + userId+ "," + phone + "," + address+ "," + grandTotal+ "," + name + "," + creatAt+ ","+ updateAt;
         System.out.println("───────────────────────────────────────────────────────────────────────────────────────── DANH SÁCH ĐƠN HÀNG ────────────────────────────────────────────────────────────────────────────────────");
