@@ -84,7 +84,7 @@ public class MenuUserView {
                     break;
                 case 4:
                     OrderView orderView2 = new OrderView();
-                    orderView2.showOrder(SelectFunction.SHOW);
+                    orderView2.showOrdersOfEmployee(AdminView.idOnlineUser , SelectFunction.SHOW);
                     break;
                 case 0:
                     login();
