@@ -25,6 +25,7 @@ public class MenuUserView {
         System.out.println("⋇                1. Tạo đơn hàng                    ⋇");
         System.out.println("⋇                2. Hiện thị các sản phẩm           ⋇");
         System.out.println("⋇                3. Chỉnh sửa đơn hàng              ⋇");
+        System.out.println("⋇                4. Xem đơn hàng                    ⋇");
         System.out.println("⋇                0. Đăng xuất                       ⋇");
         System.out.println("⋇                                                   ⋇");
         System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
@@ -82,7 +83,8 @@ public class MenuUserView {
                     orderView1.updateOrder(AdminView.idOnlineUser);
                     break;
                 case 4:
-
+                    OrderView orderView2 = new OrderView();
+                    orderView2.showOrder(SelectFunction.SHOW);
                     break;
                 case 0:
                     login();

@@ -110,7 +110,6 @@ public class OrderView {
         } while (isTrue);
 
     }
-
     public void updateOrderItem(Order order) {
         boolean isTrue = true;
         String choose;
