@@ -41,7 +41,7 @@ public class AdminView {
                 MainLauncher.menuOption();
             } else if (user.getRole() == Role.USER) {
                 System.out.println(" ✅ Đăng nhập thành công ✅ ");
-                System.out.println(" ☻☻☻ Chào mừng user " + user.getFullName() + " ☻☻☻ ");
+                System.out.println(" ☻☻☻ Chào mừng " + user.getFullName() + " ☻☻☻ ");
                 idOnlineUser = user.getIdUser();
                 MenuUserView.runOderUser();
             }

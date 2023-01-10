@@ -34,12 +34,12 @@ public class MenuUserView {
     }
     public static void menuUser() {
         System.out.println("\t┌──────────────────────────────────────────────────────────┐");
-        System.out.println("\t│► ░░░░░░░░░░░░░░░░░░[QUẢN LÝ NGƯỜI DÙNG]░░░░░░░░░░░░░░░░ ◄│");
+        System.out.println("\t│► ░░░░░░░░░░░░░░░░░░░[QUẢN LÝ NHÂN VIÊN]░░░░░░░░░░░░░░░░ ◄│");
         System.out.println("\t└──────────────────────────────────────────────────────────┘");
-        System.out.println("\t│               【1】. Thêm người dùng                      │");
-        System.out.println("\t│               【2】. Sửa thông tin người dùng             │");
-        System.out.println("\t│               【3】. Xóa người dùng                       │");
-        System.out.println("\t│               【4】. Hiện thông tin người dùng            │");
+        System.out.println("\t│               【1】. Thêm nhân viên                       │");
+        System.out.println("\t│               【2】. Sửa thông tin nhân viên              │");
+        System.out.println("\t│               【3】. Xóa nhân viên                        │");
+        System.out.println("\t│               【4】. Hiện thông tin nhân viên             │");
         System.out.println("\t│               【5】. Quay lại MAIN MENU                   │");
         System.out.println("\t│               【6】. Thoát                                │");
         System.out.println("\t└──────────────────────────────────────────────────────────┘");
