@@ -120,11 +120,19 @@ public class AppUtils {
         return decimalFormat.format(value);
     }
 
+    public static void pressToContinue(){
+        System.out.print("Ấn nút bất kỳ để tiếp tục. ");
+        System.out.print("=> ");
+         sc.nextLine();
+    }
+
     public static void menuDelete() {
-        System.out.println("═════ BẠN CÓ MUỐN XÓA KHÔNG? ═════");
-        System.out.println("║            1. Có.              ║");
-        System.out.println("║            2. Không.           ║");
-        System.out.println("══════════════════════════════════");
+        System.out.println("\t┌──────────────────────────────────────┐");
+        System.out.println("\t│► ░░░░░[BẠN CÓ MUỐN XÓA KHÔNG?]░░░░░ ◄│");
+        System.out.println("\t└──────────────────────────────────────┘");
+        System.out.println("\t│             【1】. Có                 │");
+        System.out.println("\t│             【2】. Không              │");
+        System.out.println("\t└──────────────────────────────────────┘");
         System.out.println("Nhập lựa chọn: ");
         System.out.print(" => ");
     }

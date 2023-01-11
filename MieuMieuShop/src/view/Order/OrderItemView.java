@@ -511,7 +511,9 @@ public class OrderItemView {
         System.out.println("│                                                                                                 │");
         System.out.println("──────────────────────────────────────────────────────────────────────────────────────────────────");
         removePrintedOrders(orderId);
+        AppUtils.pressToContinue();
     }
+
 
 
 }

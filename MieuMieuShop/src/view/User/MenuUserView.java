@@ -53,16 +53,21 @@ public class MenuUserView {
         System.out.println("\t└───────────────────────────────────────────┘");
         System.out.println("Chọn chức năng (chọn số) :");
         System.out.print("➠ ");
-        int choice = Integer.parseInt(sc.nextLine());
-        switch (choice) {
-            case 1:
-                adminView.adminLogin();
-                break;
-            case 0:
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Nhập sai !!! Vui lòng nhập lại !!!");
+        try {
+            int choice = Integer.parseInt(sc.nextLine());
+            switch (choice) {
+                case 1:
+                    adminView.adminLogin();
+                    break;
+                case 0:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Nhập sai !!! Vui lòng nhập lại !!!");
+            }
+        }catch (Exception e){
+            System.out.println("Nhập sai cú pháp . Vui lòng đăng nhập lại (chỉ chọn các số có ở menu)");
+           login();
         }
     }
     public static void runOderUser() {

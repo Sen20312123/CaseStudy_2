@@ -47,7 +47,7 @@ public class AdminView {
             }
         } while (isRetry);
     }
-    private static boolean isRetry() {
+    public static boolean isRetry() {
         do {
             try {
                 System.out.println("Nhấn 'y' để đăng nhập lại! || Nhấn 't' để thoát chương trình");
