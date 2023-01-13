@@ -48,7 +48,10 @@ public class SearchOrderView {
                     case 5:
                         findByUserId();
                         break;
-                    case 6:
+                    case 6 :
+                        OrderViewLauncher.runOrder();
+                        break;
+                    case 7:
                         isTrue = false;
                         break;
                     default:
