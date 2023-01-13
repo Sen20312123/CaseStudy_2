@@ -121,7 +121,7 @@ public class AppUtils {
     }
 
     public static void pressToContinue(){
-        System.out.print("Ấn nút bất kỳ để tiếp tục. ");
+        System.out.println("Ấn nút bất kỳ để tiếp tục. ");
         System.out.print("=> ");
          sc.nextLine();
     }

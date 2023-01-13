@@ -2,6 +2,7 @@ package view.User;
 
 import view.AdminView;
 import view.Order.OrderView;
+import view.Order.SearchOrderView;
 import view.Product.ProductView;
 import view.SelectFunction;
 
@@ -23,9 +24,9 @@ public class MenuUserView {
         System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
         System.out.println("⋇                                                   ⋇");
         System.out.println("⋇                1. Tạo đơn hàng                    ⋇");
-        System.out.println("⋇                2. Hiện thị các sản phẩm           ⋇");
-        System.out.println("⋇                3. Chỉnh sửa đơn hàng              ⋇");
-        System.out.println("⋇                4. Xem đơn hàng                    ⋇");
+        System.out.println("⋇                2. Chỉnh sửa đơn hàng              ⋇");
+        System.out.println("⋇                3. Xem đơn hàng                    ⋇");
+        System.out.println("⋇                4. Tìm kiếm đơn hàng               ⋇");
         System.out.println("⋇                0. Đăng xuất                       ⋇");
         System.out.println("⋇                                                   ⋇");
         System.out.println("⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷");
@@ -79,18 +80,21 @@ public class MenuUserView {
                     OrderView orderView = new OrderView();
                     orderView.addOrder(AdminView.idOnlineUser);
                     break;
+//                case 2:
+//                    productView.showProduct(SelectFunction.SHOW);
+//                    runOderUser();
+//                    break;
                 case 2:
-                    productView.showProduct(SelectFunction.SHOW);
-                    runOderUser();
-                    break;
-                case 3:
                     OrderView orderView1 = new OrderView();
                     orderView1.updateOrder(AdminView.idOnlineUser);
                     break;
-                case 4:
+                case 3:
                     OrderView orderView2 = new OrderView();
                     orderView2.showOrdersOfEmployee(AdminView.idOnlineUser , SelectFunction.SHOW);
                     break;
+                case 4 :
+                    SearchOrderView searchOrderView = new SearchOrderView();
+                    searchOrderView.search(AdminView.idOnlineUser);
                 case 0:
                     login();
                     break;

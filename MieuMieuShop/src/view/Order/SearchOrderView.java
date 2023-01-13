@@ -136,7 +136,6 @@ public class SearchOrderView {
         User user = userService.findById(userId);
         if (user.getRole() == Role.ADMIN) {
             orderView.showOrder1(orderService.findAllPrintedOrder(), SelectFunction.SEARCH);
-
         }
         if (user.getRole() == Role.USER) {
             orderView.showOrder1(orderService.findUserById(userId), SelectFunction.SEARCH);
